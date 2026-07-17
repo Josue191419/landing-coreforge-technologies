@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CoreForge Technologies | El núcleo de tu transformación digital</title>
+    <!-- Favicon (Icono de la pestaña) -->
+    <link rel="icon" type="image/png" href="logo/Logo.png"> <!-- Cambia esto por la ruta de tu logo -->
     <!-- Tailwind CSS para diseño moderno, ultra-rápido y responsive -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Poppins (Títulos) y Lato (Textos de lectura) -->
@@ -13,7 +16,7 @@
     <!-- Iconos profesionales FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <script>
+    <!-- <script>
         // Configuración de colores corporativos alineados 100% con la paleta del logo image_f2cbe6.png
         tailwind.config = {
             theme: {
@@ -48,6 +51,76 @@
             -webkit-backdrop-filter: blur(16px);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-brandDark text-brandMute font-sans antialiased overflow-x-hidden"> -->
+    <script>
+        // Configuración de colores corporativos mapeados a variables CSS dinámicas para soporte de modo claro/oscuro
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // rgb(var(--color) / <alpha-value>) permite usar opacidad de Tailwind (ej: bg-brandDark/60) con variables CSS
+                        brandDark: 'rgb(var(--color-brand-dark) / <alpha-value>)',   
+                        brandCard: 'rgb(var(--color-brand-card) / <alpha-value>)',   
+                        brandWhite: 'rgb(var(--color-brand-white) / <alpha-value>)',  
+                        brandMute: 'rgb(var(--color-brand-mute) / <alpha-value>)',   
+                        brandDeep: 'rgb(var(--color-brand-deep) / <alpha-value>)',   
+                        brandBlue: '#38BDF8',   // Azul Orbe (Constante)
+                        brandGold: '#F59E0B',   // Ámbar/Dorado Circuit (Constante)
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Variables de color por defecto (Modo Oscuro) */
+        :root {
+            --color-brand-dark: 15 23 42;       /* #0F172A (Azul Grisáceo Oscuro) */
+            --color-brand-card: 30 41 59;       /* #1E293B (Gris Azulado Suave) */
+            --color-brand-white: 248 250 252;   /* #F8FAFC (Blanco Hielo) */
+            --color-brand-mute: 148 163 184;    /* #94A3B8 (Gris Claro Mate) */
+            --color-brand-deep: 10 14 23;       /* #0A0E17 (Negro Profundo) */
+            --color-glass-nav: rgba(10, 14, 23, 0.85);
+            --color-border-subtle: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Variables de color cuando se activa el Modo Claro */
+        :root.light {
+            --color-brand-dark: 241 245 249;    /* #F1F5F9 (Fondo claro agradable) */
+            --color-brand-card: 255 255 255;    /* #FFFFFF (Tarjetas blancas limpias) */
+            --color-brand-white: 15 23 42;      /* #0F172A (Textos principales oscuros) */
+            --color-brand-mute: 71 85 105;      /* #475569 (Textos secundarios grises) */
+            --color-brand-deep: 226 232 240;    /* #E2E8F0 (Fondos profundos secundarios) */
+            --color-glass-nav: rgba(241, 245, 249, 0.85);
+            --color-border-subtle: rgba(15, 23, 42, 0.08);
+        }
+
+        /* Efectos visuales de iluminación */
+        .glow-effect {
+            box-shadow: 0 0 45px rgba(56, 189, 248, 0.2);
+        }
+        .glow-gold {
+            box-shadow: 0 0 35px rgba(245, 158, 11, 0.15);
+        }
+        
+        /* Navbar con efecto blur adaptativo */
+        .glass-nav {
+            background-color: var(--color-glass-nav);
+              webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--color-border-subtle);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Transición suave para todos los cambios de color del tema */
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
     </style>
 </head>
@@ -551,7 +624,7 @@
                         </div>
                         <div>
                             <span class="text-xs text-brandMute uppercase block">Correo de Enlace</span>
-                            <span class="text-base font-semibold text-brandWhite">emasisca@ucenfotec.ac.cr</span>
+                            <a href="mailto:coreforge.team@gmail.com" class="text-base font-semibold text-brandWhite hover:text-brandBlue transition-colors">coreforge.team@gmail.com</a>
                         </div>
                     </div>
 
@@ -561,7 +634,7 @@
                         </div>
                         <div>
                             <span class="text-xs text-brandMute uppercase block">Soporte Inmediato</span>
-                            <span class="text-base font-semibold text-brandWhite">+506 8829-2124</span>
+                            <a href="tel:+50688292124" class="text-base font-semibold text-brandWhite hover:text-brandBlue transition-colors">+506 8829-2124</a>
                         </div>
                     </div>
 
@@ -571,7 +644,7 @@
                         </div>
                         <div>
                             <span class="text-xs text-brandMute uppercase block">Sede Operativa</span>
-                            <span class="text-base font-semibold text-brandWhite">Universidad CENFOTEC, San José, Costa Rica</span>
+                            <span class="text-base font-semibold text-brandWhite">San José, Costa Rica</span>
                         </div>
                     </div>
                 </div>
@@ -658,22 +731,31 @@
                 <h4 class="font-heading font-bold text-brandWhite text-sm uppercase tracking-wider mb-4">Contacto de Soporte</h4>
                 <ul class="space-y-2 text-brandMute">
                     <li>Costa Rica, San José</li>
-                    <li><i class="fa-solid fa-envelope mr-1.5 text-brandBlue"></i>emasisca@ucenfotec.ac.cr</li>
+                    <li><i class="fa-solid fa-envelope mr-1.5 text-brandBlue"></i><a href="mailto:coreforge.team@gmail.com" class="hover:text-brandBlue transition-colors">coreforge.team@gmail.com</a></li>
                     <li><i class="fa-solid fa-phone mr-1.5 text-brandBlue"></i>+506 8829-2124</li>
-                    <li><span class="text-brandGold font-bold text-xs">Cuatrimestre II, Mayo 2026</span></li>
+                    
                 </ul>
             </div>
         </div>
 
         <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-            <span class="text-xs text-brandMute">© 2026 CoreForge Technologies. Universidad CENFOTEC. Todos los derechos reservados.</span>
+            <span class="text-xs text-brandMute">© 2026 CoreForge Technologies. Todos los derechos reservados.</span>
             <div class="flex gap-6 text-xs text-brandMute">
                 <a href="#" class="hover:text-brandBlue transition-colors">Políticas de Privacidad</a>
                 <a href="#" class="hover:text-brandBlue transition-colors">Términos y Condiciones</a>
-                <a href="#" class="hover:text-brandBlue transition-colors">BISOFT-13</a>
+            
             </div>
         </div>
     </footer>
+
+
+      <!-- ==========================================
+         9. BOTÓN FLOTANTE: CONMUTADOR DE TEMA
+         ========================================== -->
+    <button id="theme-toggle" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-brandBlue text-slate-900 shadow-[0_4px_25px_rgba(56,189,248,0.5)] flex items-center justify-center hover:scale-110 active:scale-95 hover:rotate-45 transition-all focus:outline-none" aria-label="Cambiar tema de color">
+        <!-- El icono por defecto es el Sol porque el tema inicial es Oscuro -->
+        <i id="theme-icon" class="fa-solid fa-sun text-xl"></i>
+    </button>
 
 
     <!-- ==========================================
@@ -715,6 +797,42 @@
             } else {
                 header.classList.add('py-4');
                 header.classList.remove('py-2', 'bg-brandDeep');
+            }
+        });
+
+          // LÓGICA DE CONTROL DE MODO CLARO / OSCURO
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        // Función para aplicar el tema de forma limpia
+        function applyTheme(theme) {
+            if (theme === 'light') {
+                document.documentElement.classList.add('light');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                document.documentElement.classList.remove('light');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+
+        // Buscar si hay preferencia previa guardada o usar la del sistema operativo (por defecto preferimos oscuro para ingenieros)
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+        if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+            applyTheme('light');
+        } else {
+            applyTheme('dark'); // Por defecto se mantiene en la paleta premium oscura
+        }
+
+        // Evento click para realizar el cambio interactivo de modo
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('light')) {
+                applyTheme('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                applyTheme('light');
+                localStorage.setItem('theme', 'light');
             }
         });
     </script>
